@@ -28,10 +28,14 @@ function resetFields(){
   $("input.new-state").val("");
 }
 
+function clearAdresses(){
+  $(".delete").remove();
+}
+
 //user interface logic
 $(function(){
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
+    $("#new-addresses").append('<div class="new-address delete">' +
                               '<div class="form-group">' +
                                 '<label for="new-street">Street</label>' +
                                 '<input type="text" class="form-control new-street">' +
@@ -78,7 +82,10 @@ $(function(){
         $("ul#addresses").append("<li>" + address.fullAddress() + "</li>")
       });
 
+
+
       //to clear the form
       resetFields();
+      clearAdresses();
   });
 });
